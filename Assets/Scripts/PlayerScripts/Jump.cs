@@ -13,13 +13,14 @@ namespace MetroidvaniaTools
         // Update is called once per frame
         protected virtual void Update()
         {
-            jumpPressed();
+            JumpPressed();
         }
 
-        protected virtual bool jumpPressed()
+        protected virtual bool JumpPressed()
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
+                isJumping = true; 
                 return true;
             }
             else { return false; }
@@ -28,11 +29,31 @@ namespace MetroidvaniaTools
         protected virtual void FixedUpdate()
         {
             IsJumping();
+            GroundCheck();
         }
 
         protected virtual void IsJumping()
         {
-
+            if(!character.isGrounded)
+            {
+                isJumping = false; 
+                return;
+            }
+            if (isJumping)
+            {
+                rb.AddForce(Vector2.up * jumpForce);
+            }
+        }
+        protected virtual void GroundCheck()
+        {
+            if (CollisionCheck(Vector2.down, distanceToCollider, collisionLayer))
+            {
+                character.isGrounded = true;
+            }
+            else
+            {
+                character.isGrounded = false;
+            }
         }
     }
 }

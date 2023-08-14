@@ -874,6 +874,8 @@ MonoBehaviour:
   maxJumpSpeed: 10
   maxFallSpeed: -10
   acceptedFallSpeed: -5
+  glideTime: 1.5
+  gravity: 0.5
   holdForce: 100
   buttonHoldTime: 0.5
 --- !u!1660057539 &9223372036854775807

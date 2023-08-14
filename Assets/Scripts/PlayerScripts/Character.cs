@@ -62,5 +62,9 @@ namespace MetroidvaniaTools
                 return false;
             }
         }
+        protected virtual void FallSpeed(float speed)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y * speed));
+        }
     }
 }

@@ -787,6 +787,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   maxJumps: 3
+  limitAirJumps: 1
+  maxJumpSpeed: 10
+  maxFallSpeed: -10
+  acceptedFallSpeed: -5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

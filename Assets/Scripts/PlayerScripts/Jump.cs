@@ -9,6 +9,10 @@ namespace MetroidvaniaTools
         [SerializeField] protected float distanceToCollider;
         [SerializeField] protected LayerMask collisionLayer;
         [SerializeField] protected int maxJumps;
+        [SerializeField] protected bool limitAirJumps;
+        [SerializeField] protected float maxJumpSpeed;
+        [SerializeField] protected float maxFallSpeed;
+        [SerializeField] protected float acceptedFallSpeed;
 
         private bool isJumping;
         private int numberOfJumpsLeft;
@@ -33,6 +37,10 @@ namespace MetroidvaniaTools
                     isJumping = false;
                     return false;
                 }
+                if (limitAirJumps && Falling(acceptedFallSpeed)){
+                    isJumping = false;
+                    return false; 
+                }
                 numberOfJumpsLeft--;
                 if (numberOfJumpsLeft >= 0)
                 {
@@ -53,7 +61,12 @@ namespace MetroidvaniaTools
         {
             if (isJumping)
             {
+                rb.velocity = new Vector2(rb.velocity.x, 0);
                 rb.AddForce(Vector2.up * jumpForce);
+            }
+            if(rb.velocity.y > maxJumpSpeed)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, maxJumpSpeed);
             }
         }
         protected virtual void GroundCheck()
@@ -67,6 +80,9 @@ namespace MetroidvaniaTools
             {
                 character.isGrounded = false;
                 isJumping = false;
+                if (Falling(0) && rb.velocity.y < maxFallSpeed) {
+                    rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
+                }
             }
         }
     }

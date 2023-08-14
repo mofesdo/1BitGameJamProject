@@ -9,8 +9,11 @@ namespace MetroidvaniaTools
     {
         [HideInInspector] public bool isFacingLeft;
         [HideInInspector] public bool isGrounded;
+        [HideInInspector] public bool isDashing;
         protected Collider2D col;
         protected Rigidbody2D rb;
+        protected HorizontalMovement movement;
+
         private Vector2 facingLeft;
 
         // Start is called before the first frame update
@@ -23,6 +26,7 @@ namespace MetroidvaniaTools
         {
             col = GetComponent<Collider2D>();
             rb = GetComponent<Rigidbody2D>();
+            movement = GetComponent<HorizontalMovement>();
             facingLeft = new Vector2(-transform.localScale.x, transform.localScale.y);
         }
 

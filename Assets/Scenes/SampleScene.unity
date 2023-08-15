@@ -810,6 +810,7 @@ MonoBehaviour:
   isFacingLeft: 0
   isGrounded: 0
   isDashing: 0
+  isWallSliding: 0
 --- !u!114 &2076455630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -825,6 +826,7 @@ MonoBehaviour:
   isFacingLeft: 0
   isGrounded: 0
   isDashing: 0
+  isWallSliding: 0
   timeTillMaxSpeed: 0.75
   maxSpeed: 5
   sprintMultiplier: 2
@@ -843,6 +845,7 @@ MonoBehaviour:
   isFacingLeft: 0
   isGrounded: 0
   isDashing: 0
+  isWallSliding: 0
 --- !u!50 &2076455632
 Rigidbody2D:
   serializedVersion: 4
@@ -999,6 +1002,7 @@ MonoBehaviour:
   isFacingLeft: 0
   isGrounded: 0
   isDashing: 0
+  isWallSliding: 0
   jumpForce: 100
   distanceToCollider: 0.05
   collisionLayer:
@@ -1006,11 +1010,14 @@ MonoBehaviour:
     m_Bits: 256
   maxJumps: 3
   limitAirJumps: 1
+  horizontalWallJumpForce: 50
+  verticalWallJumpForce: 50
   maxJumpSpeed: 10
   maxFallSpeed: -10
   acceptedFallSpeed: -5
   glideTime: 1.5
   gravity: 0.5
+  wallJumpTime: 0.5
   holdForce: 100
   buttonHoldTime: 0.5
 --- !u!114 &2076455637
@@ -1028,9 +1035,10 @@ MonoBehaviour:
   isFacingLeft: 0
   isGrounded: 0
   isDashing: 0
+  isWallSliding: 0
   dashForce: 150
   dashCooldownTime: 3
-  dashAmountTime: 0.5
+  dashAmountTime: 0.25
   dashingLayers:
     serializedVersion: 2
     m_Bits: 512

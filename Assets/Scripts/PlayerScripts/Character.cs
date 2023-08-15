@@ -10,9 +10,11 @@ namespace MetroidvaniaTools
         [HideInInspector] public bool isFacingLeft;
         [HideInInspector] public bool isGrounded;
         [HideInInspector] public bool isDashing;
+        [HideInInspector] public bool isWallSliding;
         protected Collider2D col;
         protected Rigidbody2D rb;
         protected HorizontalMovement movement;
+        protected Jump jump;
 
         private Vector2 facingLeft;
 
@@ -27,6 +29,7 @@ namespace MetroidvaniaTools
             col = GetComponent<Collider2D>();
             rb = GetComponent<Rigidbody2D>();
             movement = GetComponent<HorizontalMovement>();
+            jump = GetComponent<Jump>();
             facingLeft = new Vector2(-transform.localScale.x, transform.localScale.y);
         }
 

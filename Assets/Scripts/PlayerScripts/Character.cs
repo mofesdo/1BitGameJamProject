@@ -15,6 +15,7 @@ namespace MetroidvaniaTools
         protected Rigidbody2D rb;
         protected HorizontalMovement movement;
         protected Jump jump;
+        protected InputManager input;
 
         private Vector2 facingLeft;
 
@@ -30,6 +31,7 @@ namespace MetroidvaniaTools
             rb = GetComponent<Rigidbody2D>();
             movement = GetComponent<HorizontalMovement>();
             jump = GetComponent<Jump>();
+            input = GetComponent<InputManager>();
             facingLeft = new Vector2(-transform.localScale.x, transform.localScale.y);
         }
 

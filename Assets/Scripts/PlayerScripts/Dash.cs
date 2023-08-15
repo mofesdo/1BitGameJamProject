@@ -16,25 +16,17 @@ namespace MetroidvaniaTools
         // Update is called once per frame
         protected virtual void Update()
         {
-            DashPressed();
+            Dashing();
         }
-        protected virtual bool DashPressed()
+
+        public virtual void Dashing()
         {
-            if ((Input.GetKeyDown(KeyCode.Z) && canDash))
+            if (input.DashPressed() && canDash)
             {
-                Dashing();
-                return true;
+                dashCountDown = dashCooldownTime;
+                character.isDashing = true;
+                StartCoroutine(FinishedDashing());
             }
-            else
-            {
-                return false;
-            }
-        }
-        protected virtual void Dashing()
-        {
-            dashCountDown = dashCooldownTime;
-            character.isDashing = true;
-            StartCoroutine(FinishedDashing());
         }
         protected virtual void FixedUpdate()
         {

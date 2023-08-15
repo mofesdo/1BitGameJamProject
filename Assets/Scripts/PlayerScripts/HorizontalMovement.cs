@@ -21,7 +21,7 @@ namespace MetroidvaniaTools
         protected virtual void Update()
         {
             MovementPressed();
-            SprintingHeld();
+            input.SprintingHeld();
         }
 
         public virtual bool MovementPressed()
@@ -29,14 +29,6 @@ namespace MetroidvaniaTools
             if (Input.GetAxis("Horizontal") != 0)
             {
                 horizontalInput = Input.GetAxis("Horizontal");
-                return true;
-            }
-            else { return false; }
-        }
-        protected virtual bool SprintingHeld()
-        {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
                 return true;
             }
             else { return false; }
@@ -95,7 +87,7 @@ namespace MetroidvaniaTools
         }
         protected virtual void SpeedMultiplier()
         {
-            if (SprintingHeld())
+            if (input.SprintingHeld())
             {
                 currentSpeed *= sprintMultiplier;
             }

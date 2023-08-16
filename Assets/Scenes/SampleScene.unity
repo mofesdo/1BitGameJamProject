@@ -1534,6 +1534,7 @@ GameObject:
   - component: {fileID: 2076455636}
   - component: {fileID: 2076455637}
   - component: {fileID: 2076455638}
+  - component: {fileID: 2076455639}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1803,6 +1804,25 @@ MonoBehaviour:
   dashPressed: 122
   sprintingHeld: 304
   jump: 32
+  weaponFired: 8
+--- !u!114 &2076455639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076455628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c8e2dbba45f8d84daf5f400e9dba22f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFacingLeft: 0
+  isGrounded: 0
+  isDashing: 0
+  isWallSliding: 0
+  weaponTypes:
+  - {fileID: 11400000, guid: bc23f3be933ce5840bcd8d2de6211d3a, type: 2}
 --- !u!1 &2123391980
 GameObject:
   m_ObjectHideFlags: 0

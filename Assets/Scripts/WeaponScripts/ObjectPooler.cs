@@ -33,13 +33,27 @@ namespace MetroidvaniaTools
         }
         private GameObject currentItem;
 
-         public void createPool(WeaponTypes weapon)
+         public void CreatePool(WeaponTypes weapon, List<GameObject> currentPool, GameObject projectileParentFolder)
         {
             for(int i = 0; i < weapon.amountToPool;  i++)
             {
                 currentItem = Instantiate(weapon.projectile);
                 currentItem.SetActive(false);
+                currentPool.Add(currentItem);
+                currentItem.transform.SetParent(projectileParentFolder.transform);
             }
+            projectileParentFolder.name = weapon.name;
+        }
+        public virtual GameObject GetObject(List<GameObject> currentPool)
+        {
+            for(int i = 0; i < currentPool.Count; i++)
+            {
+                if (!currentPool[i].activeInHierarchy)
+                {
+                    return currentPool[i];
+                }
+            }
+            return null;
         }
     }
 }

@@ -15,3 +15,4 @@ MonoBehaviour:
   projectile: {fileID: 5634719792501101443, guid: 37bb27abc4cf5ad45b996cae85814ed0, type: 3}
   projectileSpeed: 20
   amountToPool: 20
+  lifeTime: 2

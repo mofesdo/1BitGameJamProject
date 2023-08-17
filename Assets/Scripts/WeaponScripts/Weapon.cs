@@ -44,6 +44,15 @@ namespace MetroidvaniaTools
             currentProjectile.transform.position = hand.position;
             currentProjectile.transform.rotation = hand.rotation;
             currentProjectile.SetActive(true);
+            if(!character.isFacingLeft)
+            {
+                currentProjectile.GetComponent<Projectile>().left = false;
+            }
+            else
+            {
+                currentProjectile.GetComponent<Projectile>().left = true;
+            }
+            currentProjectile.GetComponent<Projectile>().fired = true;
         }
     }
 }

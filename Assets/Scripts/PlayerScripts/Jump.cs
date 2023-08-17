@@ -129,7 +129,7 @@ namespace MetroidvaniaTools
         }
         protected virtual void GroundCheck()
         {
-            if (CollisionCheck(Vector2.down, distanceToCollider, collisionLayer) && !isJumping)
+            if (CollisionCheck(Vector2.down, distanceToCollider, collisionLayer) && !character.isJumping)
             {
                 character.isGrounded = true;
                 numberOfJumpsLeft = maxJumps;

@@ -1143,6 +1143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3177f3431e6495f4ea756d374a58ed77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xAdjustment: 3
+  yAdjustment: 0.5
+  zAdjustment: 10
+  tValue: 0.95
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1613,6 +1617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingLeft: 0
+  isJumping: 0
   isGrounded: 0
   isDashing: 0
   isWallSliding: 0
@@ -1629,6 +1634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingLeft: 0
+  isJumping: 0
   isGrounded: 0
   isDashing: 0
   isWallSliding: 0
@@ -1648,6 +1654,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingLeft: 0
+  isJumping: 0
   isGrounded: 0
   isDashing: 0
   isWallSliding: 0
@@ -1805,6 +1812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingLeft: 0
+  isJumping: 0
   isGrounded: 0
   isDashing: 0
   isWallSliding: 0
@@ -1838,6 +1846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingLeft: 0
+  isJumping: 0
   isGrounded: 0
   isDashing: 0
   isWallSliding: 0
@@ -1876,6 +1885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFacingLeft: 0
+  isJumping: 0
   isGrounded: 0
   isDashing: 0
   isWallSliding: 0

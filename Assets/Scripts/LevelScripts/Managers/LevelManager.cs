@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MetroidvaniaTools
 {
@@ -8,13 +9,19 @@ namespace MetroidvaniaTools
     {
         public Bounds levelSize;
         public GameObject initialPlayer;
+        [HideInInspector] public int currentStartReference;
 
         [SerializeField] protected List<Transform> availableSpawnLocations = new List<Transform>();
         private Vector3 startingLocation;
 
         protected virtual void Awake()
         {
-            startingLocation = availableSpawnLocations[0].position;
+            currentStartReference = PlayerPrefs.GetInt("SpawnReference");
+            if(availableSpawnLocations.Count <= currentStartReference || currentStartReference < 0)
+            {
+                currentStartReference = 0;
+            }
+            startingLocation = availableSpawnLocations[currentStartReference].position;
             CreatePlayer(initialPlayer, startingLocation);
         }
 
@@ -23,6 +30,12 @@ namespace MetroidvaniaTools
             PlayerPrefs.SetInt("FacingLeft", character.isFacingLeft ? 1 : 0);
         }
 
+        public virtual void NextScene(SceneReference scene, int spawnReference)
+        {
+            PlayerPrefs.SetInt("FacingLeft", character.isFacingLeft ? 1 : 0);
+            PlayerPrefs.SetInt("SpawnReference", spawnReference);
+            SceneManager.LoadScene(scene);
+        }
         protected virtual void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;

@@ -18,6 +18,8 @@ namespace MetroidvaniaTools
         protected Jump jump;
         protected InputManager input;
         protected ObjectPooler objectPooler;
+        protected GameObject player;
+        protected GameManager gameManager;
 
         private Vector2 facingLeft;
 
@@ -34,6 +36,7 @@ namespace MetroidvaniaTools
             movement = GetComponent<HorizontalMovement>();
             jump = GetComponent<Jump>();
             input = GetComponent<InputManager>();
+            gameManager = FindObjectOfType<GameManager>();
             objectPooler = ObjectPooler.Instance;
             facingLeft = new Vector2(-transform.localScale.x, transform.localScale.y);
         }
@@ -77,6 +80,11 @@ namespace MetroidvaniaTools
         protected virtual void FallSpeed(float speed)
         {
             rb.velocity = new Vector2(rb.velocity.x, (rb.velocity.y * speed));
+        }
+
+        public void InitializePlayer()
+        {
+            player = FindAnyObjectByType<Character>().gameObject;
         }
     }
 }

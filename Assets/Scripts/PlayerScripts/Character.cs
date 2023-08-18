@@ -84,7 +84,12 @@ namespace MetroidvaniaTools
 
         public void InitializePlayer()
         {
-            player = FindAnyObjectByType<Character>().gameObject;
+            player = FindObjectOfType<Character>().gameObject;
+            player.GetComponent<Character>().isFacingLeft = PlayerPrefs.GetInt("FacingLeft") == 1 ? true : false;
+            if(player.GetComponent<Character>().isFacingLeft)
+            {
+                player.transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            }
         }
     }
 }

@@ -18,6 +18,11 @@ namespace MetroidvaniaTools
             CreatePlayer(initialPlayer, startingLocation);
         }
 
+        protected virtual void OnDisable()
+        {
+            PlayerPrefs.SetInt("FacingLeft", character.isFacingLeft ? 1 : 0);
+        }
+
         protected virtual void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;

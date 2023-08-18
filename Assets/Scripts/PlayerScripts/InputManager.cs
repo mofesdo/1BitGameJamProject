@@ -10,6 +10,7 @@ namespace MetroidvaniaTools
         [SerializeField] protected KeyCode sprintingHeld;
         [SerializeField] protected KeyCode jump;
         [SerializeField] protected KeyCode weaponFired;
+        public Animator animator;
         public virtual bool DashPressed()
         {
             if (Input.GetKeyDown(dashPressed))
@@ -55,10 +56,12 @@ namespace MetroidvaniaTools
         {
             if (Input.GetKeyDown(weaponFired))
             {
+                animator.SetTrigger("isAttacking");
                 return true;
             }
             else
             {
+                //animator.SetBool("isAttacking", false);
                 return false;
             }
         }

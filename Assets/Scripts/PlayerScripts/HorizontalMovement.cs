@@ -47,12 +47,14 @@ namespace MetroidvaniaTools
                 runTime += Time.deltaTime;
                 currentSpeed = horizontalInput * acceleration * runTime;
                 CheckDirection();
+                input.animator.SetBool("isRunning", true);
             }
             else
             {
                 acceleration = 0;
                 runTime = 0;
                 currentSpeed = 0;
+                input.animator.SetBool("isRunning", false);
             }
             SpeedMultiplier();
             rb.velocity = new Vector2(currentSpeed, rb.velocity.y);

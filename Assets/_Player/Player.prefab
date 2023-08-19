@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8562292607906030009}
   - component: {fileID: 988328980693650030}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6841462606500996042}
   - component: {fileID: 2676129822502971264}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 3184569525398989189}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3104, y: 0, z: 0}
+  m_LocalPosition: {x: 0.3104, y: -0.289, z: 0}
   m_LocalScale: {x: 1.1601954, y: 0.5394, z: 0.5394}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -186,7 +186,7 @@ GameObject:
   - component: {fileID: 7635167369157349127}
   - component: {fileID: 8756556266530996920}
   - component: {fileID: 8835392343753101100}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}

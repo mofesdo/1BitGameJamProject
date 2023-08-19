@@ -8,6 +8,7 @@ namespace MetroidvaniaTools
     public class Projectile : MonoBehaviour
     {
         [SerializeField] protected WeaponTypes weapon;
+        [SerializeField] protected int damageAmount;
 
         public bool fired;
         public bool left;
@@ -53,6 +54,19 @@ namespace MetroidvaniaTools
                 else
                 {
                     DestroyProjectile();
+                }
+            }
+        }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
+
+                if (enemyHealth != null)
+                {
+                    enemyHealth.TakeDamage(damageAmount);
+                    Debug.Log("Enemy took damage from player.");
                 }
             }
         }

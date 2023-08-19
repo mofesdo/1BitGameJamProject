@@ -29,7 +29,7 @@ namespace MetroidvaniaTools
 
         private void CheckForPlayer()
         {
-            Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, 10f, playerLayer);
+            Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, 8f, playerLayer);
 
             if (playerCollider != null)
             {

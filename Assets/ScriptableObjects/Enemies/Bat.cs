@@ -4,58 +4,42 @@ using UnityEngine;
 
 namespace MetroidvaniaTools
 {
-    public class BatEnemy : MonoBehaviour
+    public class Bat : MonoBehaviour
     {
-        public float swoopSpeed = 5f;
-        public float attackCooldown = 2f;
-        public LayerMask playerLayer;  // The layer(s) representing the player
+        public float moveSpeed = 3f;
 
-        private bool isAttacking = false;
-        private Vector2 targetPosition;
+        private Vector2 initialPosition;
+        private bool isMovingRight = true;
+
+        private void Start()
+        {
+            initialPosition = transform.position;
+        }
 
         private void Update()
         {
-            if (!isAttacking)
+            MoveLeftAndRight();
+        }
+
+        private void MoveLeftAndRight()
+        {
+            Vector2 targetPosition;
+
+            if (isMovingRight)
             {
-                CheckForPlayer();
+                targetPosition = new Vector2(initialPosition.x + 5f, transform.position.y);
             }
             else
             {
-                Swoop();
+                targetPosition = new Vector2(initialPosition.x - 5f, transform.position.y);
             }
-        }
 
-        private void CheckForPlayer()
-        {
-            Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, 5f, playerLayer);
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-            if (playerCollider != null)
+            if (Vector2.Distance(transform.position, targetPosition) < 0.01f)
             {
-                Attack(playerCollider.transform.position);
+                isMovingRight = !isMovingRight;
             }
-        }
-
-        private void Attack(Vector2 playerPosition)
-        {
-            targetPosition = playerPosition;
-            isAttacking = true;
-        }
-
-        private void Swoop()
-        {
-            Vector2 newPosition = Vector2.MoveTowards(transform.position, targetPosition, swoopSpeed * Time.deltaTime);
-            transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
-
-            if ((Vector2)transform.position == targetPosition)
-            {
-                isAttacking = false;
-                Invoke(nameof(ResetAttack), attackCooldown);
-            }
-        }
-
-        private void ResetAttack()
-        {
-            isAttacking = false;
         }
     }
 }

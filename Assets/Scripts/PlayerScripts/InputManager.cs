@@ -11,6 +11,7 @@ namespace MetroidvaniaTools
         [SerializeField] protected KeyCode jump;
         [SerializeField] protected KeyCode weaponFired;
         public Animator animator;
+        public AudioSource shootSFX;
         public virtual bool DashPressed()
         {
             if (Input.GetKeyDown(dashPressed))
@@ -56,6 +57,7 @@ namespace MetroidvaniaTools
         {
             if (Input.GetKeyDown(weaponFired))
             {
+                shootSFX.Play();
                 animator.SetTrigger("isAttacking");
                 return true;
             }

@@ -9,7 +9,7 @@ namespace MetroidvaniaTools
         [SerializeField] public int maxHealth;
         private int currentHealth;
         public Animator animator;
-        private bool isDead = false;
+       // private bool isDead = false;
 
         private void Start()
         {
@@ -30,7 +30,7 @@ namespace MetroidvaniaTools
 
         private void Die()
         {
-            isDead = true;
+            //isDead = true;
             animator.SetTrigger("death");
 
             // Disable the GameObject after the death animation finishes

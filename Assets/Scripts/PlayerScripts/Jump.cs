@@ -23,6 +23,7 @@ namespace MetroidvaniaTools
         [SerializeField] protected float wallJumpTime;
         [SerializeField] protected float holdForce;
         [SerializeField] protected float buttonHoldTime;
+        public AudioSource jumpSFX;
 
         private bool isWallJumping;
         private int numberOfJumpsLeft;
@@ -61,6 +62,7 @@ namespace MetroidvaniaTools
                     isWallJumping = true;
                     return false;
                 }
+                jumpSFX.Play();
                 numberOfJumpsLeft--;
                 if (numberOfJumpsLeft >= 0)
                 {

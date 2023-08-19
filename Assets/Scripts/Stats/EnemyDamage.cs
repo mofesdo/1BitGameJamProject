@@ -6,7 +6,7 @@ namespace MetroidvaniaTools
 {
     public class EnemyDamage : MonoBehaviour
     {
-        [SerializeField] int damageAmount;
+        [SerializeField] float damageAmount;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
